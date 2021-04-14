@@ -23,7 +23,7 @@ Start app.
 nodemon app.js
 ```
 
-Open url localhost:5000
+Open url http://localhost:5000
 Register a new user
 Login to app
 Add new idea using Video Ideas -> Add Idea
