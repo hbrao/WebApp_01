@@ -13,7 +13,7 @@ Open command prompt (as Administrator) and install MongoDB as a service.
 C:\mongodb\bin\mongod --directoryperdb --dbpath  C:\mongodb\data\db --logpath C:\mongodb\log\mongo.log --logappend  --config  C:\mongodb\bin\mongod.cfg --install --serviceName MongoDB
 ```
 
-Start database.
+Start service.
 
 ```
 net start MongoDB
