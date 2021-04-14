@@ -23,6 +23,7 @@ Start app.
 
 ```
 cd %HOMEPATH%/WebApp_01
+npm i -g nodemon 
 nodemon app.js
 ```
 
