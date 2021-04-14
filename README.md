@@ -3,8 +3,9 @@
 This is a simple web app runs on NodeJS that can be used as a template to start building a new web application. Application is 
 designed to store the users data and contents in a MongoDB and uses [Passport](http://www.passportjs.org) as authentication framework with [passport-local](http://www.passportjs.org/packages/passport-local/) strategy. 
 
-Below are the commands I used to setup (as Administrator) an instance of MongoDB in Windows 10 PC.
+Below are the instructions to setup and play with the web application. 
 
+Open command prompt (as Administrator)
 Install MongoDB as a service.
 
 ```
