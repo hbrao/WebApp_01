@@ -17,8 +17,23 @@ Start database.
 net start MongoDB
 ```
 
-Launch CLI  and type ```help``` to know the available commands to interact with databases and collections.
+Start app. 
 
 ```
-C:\mongodb\bin\mongo
+nodemon app.js
+```
+
+Open url localhost:5000
+Register a new user
+Login to app
+Add new idea using Video Ideas -> Add Idea
+
+Use following commands to interact with databases and collections.
+
+```
+cd C:\mongodb\bin
+mongo
+show dbs
+use vidjot-dev
+db.users.find()
 ```
