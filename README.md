@@ -23,7 +23,8 @@ Start app.
 
 ```
 cd %HOMEPATH%/WebApp_01
-npm i -g nodemon 
+npm i -g nodemon
+npm install
 nodemon app.js
 ```
 
