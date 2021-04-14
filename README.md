@@ -5,8 +5,9 @@ designed to store the users data and contents in a MongoDB and uses [Passport](h
 
 Below are the instructions to setup and play with the web application. 
 
-Open command prompt (as Administrator)
-Install MongoDB as a service.
+
+
+Open command prompt (as Administrator) and install MongoDB as a service.
 
 ```
 C:\mongodb\bin\mongod --directoryperdb --dbpath  C:\mongodb\data\db --logpath C:\mongodb\log\mongo.log --logappend  --config  C:\mongodb\bin\mongod.cfg --install --serviceName MongoDB
@@ -21,6 +22,7 @@ net start MongoDB
 Start app. 
 
 ```
+cd %HOMEPATH%/WebApp_01
 nodemon app.js
 ```
 
