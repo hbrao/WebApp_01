@@ -12,17 +12,22 @@ ideasRoute = require("./routes/Ideas")
 usersRoute = require("./routes/Users")
 pasportStrategy = require('./config/passportStrategy')
 
+//Use express web application framework in NodeJS 
 app = express()
 
-//Middleware for express-handlebars
+//Middleware for express-handlebars in view layer
 app.engine('handlebars', exphbs({
     defaultLayout: 'main' // main => layouts/main.handlebars
 }))
 app.set('view engine', 'handlebars')
 
-//Middleware for body-parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+//Ability to define a flash message and render it without redirecting the request.
+app.use(flash());
+
+
+//You need to use bodyParser() if you want the form data to be readily available as req.body in POST operations
+app.use(bodyParser.urlencoded({ extended: false })) // for parsing Content-Type:application/x-www-form-urlencoded
+app.use(bodyParser.json()) // for parsing Content-Type:application/json
 
 //Middleware for express-sessions
 app.use(session({
@@ -33,32 +38,35 @@ app.use(session({
     )
 );
 
-//Passport config
-pasportStrategy(passport)
+//Middleware for authentication 
 
-//Middleware for passport
+//Step 1: Define passport authentication strategy / logic to authenticate a user
+pasportStrategy(passport)
+//Step 2: Set strategy in express app
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(flash());
 
 //Connect to MongoDB
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/vidjot-dev', {
     useNewUrlParser: true
 })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err))
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err))
 
-//Global variables
+//Enable access to content under folder public i.e. images, css etc. 
+app.use(express.static(path.join(__dirname, 'public')))
+
+//Set global variables. These variables are accessible in all apges.
 app.use(function (req, res, next) {
     //console.log(req.body)
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
-    if (!res.locals.user) {
-        if (req.user) {
-            //console.log('req.user='+req.user.email)
+    if ( ! res.locals.user ) {
+        if ( req.user ) {
+            //console.log(req.user)
+            //console.log('Ensure global variable user is set to logged in user email ' + req.user.email)
             res.locals.user = req.user.email
         }
     }
@@ -83,10 +91,7 @@ app.get('/about', (req, res) => {
 app.use('/users', usersRoute)
 app.use('/ideas', ideasRoute)
 
-//Use public folders
-app.use(express.static(path.join(__dirname, 'public')))
-
 port = 5000
 app.listen(5000, () => {
-    console.log('Hello world.')
+    console.log('Hello world. Server running at port 5000')
 })
