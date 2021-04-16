@@ -1,3 +1,4 @@
+//Used in protected routes (e.g. routes/Idea.js) to ensure only authenticated users can access them. 
 
 module.exports = function (req, res, next) {
     if (req.isAuthenticated()) {
