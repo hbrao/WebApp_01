@@ -1,4 +1,4 @@
-# WebApp_01
+# [Node.js, Express and MongoDB](https://learning.oreilly.com/videos/node-js-express-and/9781789535952)
 
 This is a simple web app runs on NodeJS that can be used as a template to start building a new web application. Application is 
 designed to store the users data and contents in a MongoDB and uses [Passport](http://www.passportjs.org) as authentication framework with [passport-local](http://www.passportjs.org/packages/passport-local/) strategy. 
