@@ -91,7 +91,7 @@ app.get('/about', (req, res) => {
 app.use('/users', usersRoute)
 app.use('/ideas', ideasRoute)
 
-port = 5000
-app.listen(5000, () => {
-    console.log('Hello world. Server running at port 5000')
+port = 3456
+app.listen(3456, () => {
+    console.log('Hello world. Server running at port 3456')
 })
