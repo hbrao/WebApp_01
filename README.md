@@ -30,7 +30,6 @@ docker container run -d --name mongo_db -p  27017:27017  -v /tmp/mongo:/data/db 
 ## Start app. 
 
 ```
-cd %HOMEPATH%/WebApp_01
 npm i -g nodemon
 npm install
 nodemon app.js
@@ -44,7 +43,6 @@ nodemon app.js
 ## Use following commands to interact with databases and collections.
 
 ```
-cd C:\mongodb\bin
 mongo
 show dbs
 use vidjot-dev
