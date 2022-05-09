@@ -6,6 +6,8 @@ designed to store the users data and contents in a MongoDB and uses [Passport](h
 Below are the instructions to setup and play with the web application. 
 
 
+## MongoDB Setup
+### Windows
 
 Open command prompt (as Administrator) and install MongoDB as a service.
 
@@ -19,7 +21,13 @@ Start service.
 net start MongoDB
 ```
 
-Start app. 
+### Linux
+
+```
+docker container run -d --name mongo_db -p  27017:27017  -v /tmp/mongo:/data/db mongo
+```
+
+## Start app. 
 
 ```
 cd %HOMEPATH%/WebApp_01
@@ -33,7 +41,7 @@ nodemon app.js
 * Login to app
 * Add new idea using Video Ideas -> Add Idea
 
-Use following commands to interact with databases and collections.
+## Use following commands to interact with databases and collections.
 
 ```
 cd C:\mongodb\bin
