@@ -35,7 +35,7 @@ npm install
 nodemon app.js
 ```
 
-* Open url http://localhost:5000
+* Open url http://localhost:3456
 * Register a new user
 * Login to app
 * Add new idea using Video Ideas -> Add Idea
